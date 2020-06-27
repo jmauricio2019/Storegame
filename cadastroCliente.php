@@ -19,7 +19,7 @@
 	<header id="cabecalho">
 	<hgroup>
 	<h1>Store Game</h1>
-        <div> <span style="float:left"><?php session_start();echo" ".$_SESSION['nome'];?></span><br/></div>
+        <div> <span style="float:left"><?php echo" ".$_SESSION['nome'];?></span><br/></div>
 	<h2>Sua Melhor Opção Em Compras De Jogos.</h2>
 	</hgroup>
 	
@@ -29,8 +29,6 @@
         
 	<ul type="1" start="1">	
 	<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="index.php">Home</a></li>
-        <li onmouseover="mudaFoto('_imagens/playstation-icon.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="playstation.php">PS4</a></li>
-        <li onmouseover="mudaFoto('_imagens/xbox.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="xbox.php">XBoxOne</a></li>
         <li onmouseover="mudaFoto('_imagens/cadjogo.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="cadproduto.php">Cad. de Jogos</a></li>
         <li onmouseover="mudaFoto('_imagens/adm.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="adm.php">Administração</a></li>
 	</ul>
