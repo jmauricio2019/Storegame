@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,7 @@
 	<title>STORE GAME</title>   
 	<link rel="stylesheet" type="text/css"href="_css/estilo.css"/>
 	<link rel="stylesheet" href="_css/form.css"/>	
-	<script language="javascript" src="_javascript/funcoes.js"></script>
+	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=bC5hvLTXtzdLEEoUJ3BG6tazh3hDgjrsZCCRUYC4iVi2YvojLeeNICBM9Ea3-bfWysBAzjKSRonMfiJECe3N_A" charset="UTF-8"></script><script language="javascript" src="_javascript/funcoes.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
             
 	<h1>Store Game</h1>
 	<h2>Sua Melhor Opção Em Compras De Jogos.</h2>
-        <div> <span style="float:left"><?php session_start();echo" ".$_SESSION['nome'];?></span><br/></div>
+        <div> <span style="float:left"> Administrador</span><br/></div>
 	</hgroup>
 	
 	<img id="icone" src="_imagens/cadjogo.png"/>   
@@ -25,8 +26,6 @@
 	<h1>Menu Principal</h1>
 	<ul type="1" start="1">	
         <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="index.php">Home</a></li>
-        <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="fale-conosco.php">Login</a></li>
-        <li onmouseover="mudaFoto('_imagens/cadjogo.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="cadproduto.php">Cad. de Jogos</a></li>
         <li onmouseover="mudaFoto('_imagens/adm.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="cadastroCliente.php">Administração</a></li>
 	</ul>
 	</nav>
@@ -60,32 +59,13 @@
                     <p><label for="cPrecodoJogo">Valor R$ :</label><input type="text" name="tPrecodoJogo" id="cPrecodoJogo" size="20" maxlength="30" placeholder="Valor do Jogo"/></p>
                     <p><label for="cQtdJogo">Quantidade:</label><input type="number" name="tQtdJogo" id="cQtdJogo" min="0" max="50" value="0" /></p>
 		</fieldset>  
-            <input type="submit" name="bt1" value="Salvar"/> 
+            <!__input type="submit" name="bt1" value="Salvar"/>
+            <p><input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="bt1" value="Salvar"><br><br></p>
+            <td><a href="acessodbproduto.php?id="> Acessar Cadastros De Jogos: </a></td><br><br>
 	  <! __input type="image" name="bt1" src="_imagens/salvar3.png" /> 
           </form>
-<?php
-  if(isset($_POST['bt1'])){
-    $tPlataforma=$_POST['tPlataforma'];
-    $tNomedoJogo=$_POST['tNomedoJogo'];
-    $tGenero=$_POST['tGenero'];
-    $tCodigo=$_POST['tCodigo'];
-    $tPrecodoJogo=$_POST['tPrecodoJogo'];
-    $tQtdJogo=$_POST['tQtdJogo'];
-        try{
-        $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
-        $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $texto="INSERT INTO cadproduto (plataforma, nome, genero, codigo, valor, quantidade) VALUE('".$tPlataforma."','".$tNomedoJogo."','".$tGenero.""
-                . "','".$tCodigo."','".$tPrecodoJogo."','".$tQtdJogo."')";
-        $conecta->exec($texto);
-        echo 'dados garvados com sucesso...';       
-        }
-        
-        catch(PDOException $erro){
-        echo "erro na coneção";   
-        }
-        }
-        ?>
-          
+
+
 </article>
 </section>
 
