@@ -47,7 +47,7 @@
 <figure class="foto-legenda">
 
 
-	<img src="_imagens/game2.png"width=""/>
+    <img src="_imagens/game2.jpeg"width=""/>
 	<figcaption>
 	<h3>Game Store</h3>
 	<p> Sua Melhor Diversão Em Jogos </p>
@@ -60,7 +60,7 @@
 <figure class="foto-legenda">
 
 
-	<img src="_imagens/game4.jpg"width=""/>
+	<img src="_imagens/game4.jpeg"width=""/>
 	<figcaption>
 	<h3>Game Store</h3>
 	<p> Red Dead Redemption 2     R$169,90</p>
