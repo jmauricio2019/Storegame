@@ -82,14 +82,14 @@ class Banco
     }
     public function deletar()
     { 
-       
-        try {
+      $ide=$_POST['id'];  
+      try {
           $conn = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
           // set the PDO error mode to exception
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
           
-          $sql = "DELETE FROM cadproduto WHERE id= '".$id."'";
+          $sql = "DELETE FROM cadproduto WHERE id= '$ide'";
           $conn->exec($sql);
             echo '<script language="javascript">';
             echo 'alert("Dados deletados com sucesso ")';
@@ -97,10 +97,8 @@ class Banco
         } catch(PDOException $e) {
             echo '<script language="javascript">';
             echo 'alert("Erro conexão... ")';
-            echo '</script>'  . "<br>" . $e->getMessage();
+            echo '</script>';
         }
-
-        $conn = null;
     }
 }
 ?>
