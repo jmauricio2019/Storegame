@@ -25,9 +25,6 @@
 	<nav id="menu">
 	<h1>Menu Principal</h1>
 	<ul type="1" start="1">	
-	<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="index.php">Home</a></li>
-        <li onmouseover="mudaFoto('_imagens/playstation-icon.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="playstation.php">PS4</a></li>
-        <li onmouseover="mudaFoto('_imagens/xbox.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="xbox.php">XBoxOne</a></li>
         <li onmouseover="mudaFoto('_imagens/adm.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="cadastroCliente.php">Administração</a></li>
 	</ul>
 	</nav>
@@ -45,6 +42,7 @@
 
 <h2>Banco de Dados Produtos</h2>
 <?php
+  session_start();
   try{
    $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
    $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,7 +50,8 @@
   
   foreach ( $dados as $linha){
     //echo  $linha['id']."_    _".$linha['plataforma']."_     _".$linha['nome']."<a href='adm.php?nome='> <b>Editar</b> </a>"."_    _"." <a href='adm.php?nome='> <b>Excluir</b> </a>", "<br>";
-    //      
+    //
+    $_SESSION['ide']= $linha['id'];      
         //crie uma variável para receber o código da tabela
     $tabela = '<table id="tabelaspec">';//abre table
     $tabela .='<thead>';//abre cabeçalho
@@ -78,10 +77,8 @@
     $tabela .= '<td>'.$linha['codigo'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['valor'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['quantidade'].'</td>'; // coluna validade
-    
     $tabela .= '<td class="cd"><a href="adm.php?id='.$linha['id'].'"><b>Editar</b></a></td>';
-    $tabela .= '<td class="cd"><a href="adm.php?id='.$linha['id'].'"><b>Excluir</b></a></td>';
-    $tabela .= '</tr>'; // fecha linha
+    $tabela .= '<td class="cd"><a href="Excluirproduto.php?id='.$linha['id'].'"; ><b>Excluir</b></a></td>';
   /*loop deve terminar aqui*/
     $tabela .='</tbody>'; //fecha corpo
     $tabela .= '</table>';//fecha tabela

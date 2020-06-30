@@ -43,7 +43,8 @@
 				<h3 class="direita">Atualizado em Junho 2020</h3>
 			</hgroup>
 		</header>
-    <form method="post" action="login.php">
+</form>
+        <form method="post" action="#">
 		<fieldset id="usuario"><legend>Informações do Cliente</legend>
 				<p><label for="cNome">Nome:</label><input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"/></p>
 				<p><label for="cSenha">Senha:</label><input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="Máx. 8 Dígitos"/></p>
@@ -76,37 +77,12 @@
 	  <! __input type="image" name="bt1" src="_imagens/salvar3.png" /> 
           </form>
           
-          <?php
-        if(isset($_POST['bt1'])){
-        $tNome=$_POST['tNome'];
-        $tSenha=$_POST['tSenha'];
-        $tMail=$_POST['tMail'];
-        $tNasc=$_POST['tNasc'];
-        $tTel=$_POST['tTel'];
-        
-        $tRua=$_POST['tRua'];
-        $tNum=$_POST['tNum'];
-        $tEst=$_POST['tEst'];
-        $tCid=$_POST['tCid'];
-        
-        try{
-        $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
-        $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $texto="INSERT INTO clientes (nome, senha, email, datanasc, tel, logadouro, numero, uf, cidade) VALUE('".$tNome."','".$tSenha."','".$tMail."','".$tNasc."','".$tTel."','".$tRua."','".$tNum."','".$tEst."','".$tCid."')";
-        $conecta->exec($texto);
-            echo '<script language="javascript">';
-            echo 'alert("Dados salvos com sucesso ")';
-            echo '</script>';
-            header("location:login.php");
-        }
-        
-        catch(PDOException $erro){
-       echo '<script language="javascript">';
-            echo 'alert("Erro conexão... ")';
-            echo '</script>';   
-        }
-        }
-        ?>
+<?php
+include 'BancoData.php';
+$temp = new Banco();
+$temp ->cadlogin(); 
+       
+?>
     <br><br>
 </article>
 </section>

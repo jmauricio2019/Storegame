@@ -25,7 +25,6 @@
 	<nav id="menu">
 	<h1>Menu Principal</h1>
 	<ul type="1" start="1">	
-	<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="index.php">Home</a></li>
         <li onmouseover="mudaFoto('_imagens/adm.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="cadastroCliente.php">Administração</a></li>
 	</ul>
 	</nav>
@@ -70,7 +69,7 @@
     $tabela .= '<td>'.$linha['senha'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['email'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['datanasc'].'</td>'; // coluna validade
- 
+    $_SESSION['ide']= $linha['id'];
     $tabela .= '<td class="cd"><a href="adm.php?id='.$linha['id'].'"><b>Editar</b></a></td>';
     $tabela .= '<td class="cd"><a href="adm.php?id='.$linha['id'].'"><b>Excluir</b></a></td>';
     $tabela .= '</tr>'; // fecha linha

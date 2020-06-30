@@ -41,7 +41,7 @@
 		</header>
 	<form method="post" action="#">
 		<fieldset id="cadjogo"><legend>Area Administrativa</legend><br><br>
-                    <li onmouseover="mudaFoto('_imagens/contato.png')" ><a href="admcliente.php">Cadastro De Clientes</a></li><br>
+                    <li onmouseover="mudaFoto('_imagens/contato.png')" ><a href="fale-conosco.php">Cadastro De Clientes</a></li><br>
                     <li onmouseover="mudaFoto('_imagens/cadjogo.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="admjogo.php">Cadastro De Jogos</a></li>
                     <br><br><br><br><br><br><br><br><br><br><br>
                     
