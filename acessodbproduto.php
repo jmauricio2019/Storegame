@@ -36,15 +36,13 @@
 		<header id="cabecalho-artigo">
 			<hgroup>
                         <h3>ADM > BD > Produtos </h3>
-                        <p><label for="cIde">Ide produto:</label><input type="number" name="id" id="cUsuario" size="20" maxlength="30" /></p>
-                       <input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="btn_excluir" value="Excluir">
-                       <input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="btn_atualizar" value="Atualizar"><br><br><br>
 			<h1>Banco de Dados</h1>
                         <h3 class="direita">Atualizado em Junho de 2020</h3>
 			</hgroup>
 		</header>
-
-<h2>Banco de Dados Produtos</h2>
+    <p><h1><label for="cIde">ID Produto:</label><input type="number" name="id" id="cUsuario" size="20" maxlength="30" /></h1></p>
+        <input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="btn_excluir" value="Excluir">
+        <input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="btn_atualizar" value="Atualizar"><br><br><br>
 </form>
 <?php
    
@@ -84,8 +82,6 @@
     $tabela .= '<td>'.$linha['codigo'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['valor'].'</td>'; // coluna validade
     $tabela .= '<td>'.$linha['quantidade'].'</td>'; // coluna validade
-    $tabela .= '<td class="cd"><a href="adm.php?id='.$linha['id'].'"></a></td>';
-    $tabela .= '<td class="cd"><a href="acessodbproduto.php?id='.$linha['id'].'"; ></a></td>';
     
 
 

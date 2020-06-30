@@ -76,7 +76,7 @@
             <p><input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="bt1" value="Salvar Dados"></p>  
             
              <! botoes do cadastro de produtos /><br>
-            <td><a href="acessodbproduto.php?id="> Acessar Cadastros De Clientes: </a></td>
+            <td><a href="acessobd.php?id="> Acessar Cadastros De Clientes: </a></td>
 	  <! __input type="image" name="bt1" src="_imagens/salvar3.png" /> 
           </form>
           
@@ -94,4 +94,58 @@
             
            
             
-            
+     <?php
+          /*começa banco cadastro de clientes*/
+        if(isset($_POST['bt1'])){
+        $tNome=$_POST['tNome'];
+        $tSenha=$_POST['tSenha'];
+        $tMail=$_POST['tMail'];
+        $tNasc=$_POST['tNasc'];
+        $tTel=$_POST['tTel'];
+        $tRua=$_POST['tRua'];
+        $tNum=$_POST['tNum'];
+        $tEst=$_POST['tEst'];
+        $tCid=$_POST['tCid'];
+        try{
+        $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
+        $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $texto="INSERT INTO clientes (nome, senha, email, datanasc, tel, logadouro, numero, uf, cidade) VALUE"
+                . "('".$tNome."','".$tSenha."','".$tMail."','".$tNasc."','".$tTel."','".$tRua."','".$tNum."','".$tEst."','".$tCid."')";
+        $conecta->exec($texto);
+        echo 'dados garvados com sucesso...';       
+        }
+        
+        catch(PDOException $erro){
+        echo "erro na coneção";   
+        }
+        }
+         /*fim banco cadastro de clientes*/
+        
+         /*começa banco cadastro deprodutos*/
+         if(isset($_POST['bt5'])){
+    $tPlataforma=$_POST['tPlataforma'];
+    $tNomedoJogo=$_POST['tNomedoJogo'];
+    $tGenero=$_POST['tGenero'];
+    $tCodigo=$_POST['tCodigo'];
+    $tPrecodoJogo=$_POST['tPrecodoJogo'];
+    $tQtdJogo=$_POST['tQtdJogo'];
+        try{
+        $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
+        $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $texto="INSERT INTO cadproduto (plataforma, nome, genero, codigo, valor, quantidade) VALUE"
+                . "('".$tPlataforma."','".$tNomedoJogo."','".$tGenero."','".$tCodigo."','".$tPrecodoJogo."','".$tQtdJogo."')";
+        $conecta->exec($texto);
+        echo '<script language="javascript">';
+            echo 'alert("Dados salvos com sucesso ")';
+            echo '</script>';       
+        }
+        
+        catch(PDOException $erro){
+       echo '<script language="javascript">';
+            echo 'alert("Erro conexão... ")';
+            echo '</script>';  
+        
+        }
+        }
+         /*fim banco cadastro de produtos*/
+        ?>       
