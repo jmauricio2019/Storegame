@@ -99,7 +99,7 @@
         }
         
         catch(PDOException $erro){
-        echo "erro na coneção";   
+        echo "erro na conexão";   
         }
         }
          /*fim banco cadastro de clientes*/

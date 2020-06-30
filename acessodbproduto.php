@@ -46,7 +46,6 @@
 </form>
 <?php
    
-
   try{
    $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
    $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -111,9 +110,13 @@ if(isset($_POST['btn_excluir'])){
             echo 'alert("Erro conexão... ")';
             echo '</script>';
         }
+        header("location:acessodbproduto.php");
 }
-  
-        
+
+if(isset($_POST['btn_atualizar'])){
+    $codi=$_POST['id'];
+    header("location:atualizarProduto.php");            
+}       
   
 ?>
 <br>
