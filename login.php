@@ -28,7 +28,7 @@
         <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="index.php">Home</a></li>
         <li onmouseover="mudaFoto('_imagens/playstation-icon.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="playstation.php">PS4</a></li>
         <li onmouseover="mudaFoto('_imagens/xbox.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="xbox.php">XBoxOne</a></li>
-        <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="login.php">Login</a></li>
+        <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/papel6.png')"><a href="login.php">Contato</a></li>
 	</ul>
 	</nav>
 </header>
@@ -49,7 +49,7 @@
             
         <input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="btn_entrar" value="Acessar"><br><br><br>
         
-        <a href="fale-conosco.php" target="_blank"><u>Cadastre-se</u></a>
+        <a href="pedido.php" target="_blank"><u>Realizar Pedidos</u></a>
           </form>
           
 </article>
