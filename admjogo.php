@@ -58,9 +58,10 @@
                     <p><label for="cCodigo">Código do Jogo:</label><input type="text" name="tCodigo" id="cCodigo" size="20" maxlength="30" placeholder="Codigo do Jogo"/></p>
                     <p><label for="cPrecodoJogo">Valor R$ :</label><input type="text" name="tPrecodoJogo" id="cPrecodoJogo" size="20" maxlength="30" placeholder="Valor do Jogo"/></p>
                     <p><label for="cQtdJogo">Quantidade:</label><input type="number" name="tQtdJogo" id="cQtdJogo" min="0" max="50" value="0" /></p>
+                    <label for="cImagem">Imagem :</label><input type="file" name="tImagem" id="cImagem" placeholder="Imagem"/>
 		</fieldset>  
             <!__input type="submit" name="bt1" value="Salvar"/>
-            <p><input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="bt1" value="Salvar"><br><br></p>
+            <p><input type="submit" style="font-size: 20px; background-color: #404040;  color: #e6e6e6;" name="bt5" value="Salvar"><br><br></p>
             <td><a href="acessodbproduto.php?id="> Acessar Cadastros De Jogos: </a></td><br><br>
 	  <! __input type="image" name="bt1" src="_imagens/salvar3.png" /> 
           </form>
@@ -78,31 +79,7 @@
 
 </html>
 <?php
-          /*começa banco cadastro de clientes*/
-        if(isset($_POST['bt1'])){
-        $tNome=$_POST['tNome'];
-        $tSenha=$_POST['tSenha'];
-        $tMail=$_POST['tMail'];
-        $tNasc=$_POST['tNasc'];
-        $tTel=$_POST['tTel'];
-        $tRua=$_POST['tRua'];
-        $tNum=$_POST['tNum'];
-        $tEst=$_POST['tEst'];
-        $tCid=$_POST['tCid'];
-        try{
-        $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
-        $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $texto="INSERT INTO clientes (nome, senha, email, datanasc, tel, logadouro, numero, uf, cidade) VALUE"
-                . "('".$tNome."','".$tSenha."','".$tMail."','".$tNasc."','".$tTel."','".$tRua."','".$tNum."','".$tEst."','".$tCid."')";
-        $conecta->exec($texto);
-        echo 'dados garvados com sucesso...';       
-        }
-        
-        catch(PDOException $erro){
-        echo "erro na conexão";   
-        }
-        }
-         /*fim banco cadastro de clientes*/
+          
         
          /*começa banco cadastro deprodutos*/
          if(isset($_POST['bt5'])){
@@ -112,6 +89,7 @@
     $tCodigo=$_POST['tCodigo'];
     $tPrecodoJogo=$_POST['tPrecodoJogo'];
     $tQtdJogo=$_POST['tQtdJogo'];
+    //$tImagem=$_POST['tImagem'];
         try{
         $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
         $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
