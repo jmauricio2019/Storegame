@@ -42,12 +42,13 @@
 
                 </header>
 <?php
-
+$codi = $_POST['id'];
 try {
 $conecta= new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore","root","");
 $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dados=$conecta->query("SELECT * FROM  cadproduto where id = 3");
+$dados=$conecta->query("SELECT * FROM  cadproduto where id = '$codi'");
 foreach ($dados as $linha){
+  $idem   =$linha['id'];  
   $plat  = $linha['plataforma'];
   $nome  =$linha['nome'];
   $ger   =$linha['genero'];
@@ -60,13 +61,16 @@ foreach ($dados as $linha){
 }
 
 ?>
-	<form method="post" action="#">
+    <form method="post" action="">
 		<fieldset id="cadjogo"><legend>Identificação do Jogo</legend>
+                    <p><label for="cIdeBanco">Ide Do Banco:</label><input type=text name=idi value="<?php echo "".$idem;?>" id="cNomedoJogo" size="20" maxlength="30" placeholder="Ide Banco"/></p>
                     <p><label for="cPlataforma">Plataforma:</label>
-			<select name="tPlataforma" id="cPlatafomra">
+			<select name="tPlataforma"  id="cPlatafomra">
 				<optgroup label="XBOX">
-				<option value="<?php echo "".$plat;?>">XBox One </option>
+                                <option value=""><?php echo "".$plat;?></option>    
+				<option value="xboxone">XBox One </option>
 				<option value="xbox360">XBox 360 </option>
+				 
 				
 				</optgroup>
 				<optgroup label="PLAYSTATION">
@@ -75,38 +79,47 @@ foreach ($dados as $linha){
 				</optgroup>
                                 
 			</select>
-                    Nome:  
+                      
                     <p><label for="cNomedoJogo">Nome do Jogo:</label><input type=text name=nome value="<?php echo "".$nome;?>" id="cNomedoJogo" size="20" maxlength="30" placeholder="Nome do Jogo"/></p>
                     <p><label for="cGenero">Gênero:</label><input type="text" name="tGenero" value="<?php echo "".$ger;?>"id="cNome" size="20" maxlength="30" placeholder="Ação/Corrida/Luta/RPG/Aventura/etc..."/></p>
                     <p><label for="cCodigo">Código do Jogo:</label><input type="text" name="tCodigo" value="<?php echo "".$cod;?>"id="cCodigo" size="20" maxlength="30" placeholder="Codigo do Jogo"/></p>
                     <p><label for="cPrecodoJogo">Valor R$ :</label><input type="text" name="tPrecodoJogo" value="<?php echo "".$val;?>"id="cPrecodoJogo" size="20" maxlength="30" placeholder="Valor do Jogo"/></p>
-                    <p><label for="cQtdJogo">Quantidade:</label><input type="number" name="tQtdJogo"value="<?php echo "".$qtd;?>" id="cQtdJogo" min="0" max="50" value="0" /></p>
+                    <p><label for="cQtdJogo">Quantidade:</label><input type="number" name="tQtdJogo"value="<?php echo "".$qtd;?>" id="cQtdJogo" min="0" max="50" 
+                                                                       /></p>
 		</fieldset>  
             <input type="submit" name="bt2" value="Atualizar"/> 
 	  <! __input type="image" name="bt1" src="_imagens/salvar3.png" /> 
           </form>
 <?php
   if(isset($_POST['bt2'])){
-    $tPlataforma=$_POST['tPlataforma'];
-    $tNomedoJogo=$_POST['tNomedoJogo'];
-    $tGenero=$_POST['tGenero'];
-    $tCodigo=$_POST['tCodigo'];
-    $tPrecodoJogo=$_POST['tPrecodoJogo'];
-    $tQtdJogo=$_POST['tQtdJogo'];
+        $tPlataforma=$_POST['tPlataforma'];
+        $tNomedoJogo=$_POST['nome'];
+        $tGenero=$_POST['tGenero'];
+        $tCodigo=$_POST['tCodigo'];
+        $tPrecodoJogo=$_POST['tPrecodoJogo'];
+        $tQtdJogo=$_POST['tQtdJogo'];
+        $idd    =$_POST['idi'];
         try{
         $conecta = new PDO("mysql:host=127.0.0.1;port=3306;dbname=gamestore", "root", "");
         $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $texto=" UPDATE FROM cadproduto (plataforma, nome, genero, codigo, valor, quantidade) VALUE('".$tPlataforma."','".$tNomedoJogo."','".$tGenero.""
-                . "','".$tCodigo."','".$tPrecodoJogo."','".$tQtdJogo."')";
+        $texto=" UPDATE cadproduto SET plataforma = '".$tPlataforma."' , nome= '".$tNomedoJogo."' , codigo='".$tCodigo."' ,"
+                . " valor = '".$tPrecodoJogo."',quantidade ='".$tQtdJogo."'  WHERE id =".$idd;
         $conecta->exec($texto);
-        echo 'dados garvados com sucesso...';       
-        }
-        
+        echo '<script language="javascript">';
+        echo 'alert("Dados Atualizados com sucesso ")';
+        echo '</script>';
+        header("cadastroCliente.php");  
+        } 
         catch(PDOException $erro){
-        echo "erro na coneção";   
+        echo '<script language="javascript">';
+        echo 'alert("Erro no Banco ")';
+        echo '</script>';
+       
+        
+        
         }
-        }
-        ?>
+        }  
+?>
           
 </article>
 </section>

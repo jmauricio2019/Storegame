@@ -29,7 +29,7 @@
 	</ul>
 	</nav>
 </header>
-     <form method="post" action="#">
+    <form method="post" action="atualizarProduto.php">
     <section id="corpo-full">
 
 	<article id="noticia-principal">
@@ -115,7 +115,7 @@ if(isset($_POST['btn_excluir'])){
 
 if(isset($_POST['btn_atualizar'])){
     $codi=$_POST['id'];
-    header("location:atualizarProduto.php");            
+              
 }       
   
 ?>
